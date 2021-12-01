@@ -1,0 +1,96 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/template-general.xhtml">
+	<ui:define name="titulo">
+ 		#{msgs.tituloOperacionListado}
+ 	</ui:define>
+	<ui:define name="cuerpo">
+		<h:form>
+			<p:tabView>
+				<p:tab title="#{msgs.tituloListadoPorCiudad}">	
+					<p:commandButton value="#{msgs.tituloListadoPorCiudad}" style="margin-right: 20px; margin-bottom: 20px"
+						action="#{controllerPisos.listadoCiudad}"
+						update="tablaListadoCiudad" inmediate="true"></p:commandButton>
+					<h:outputText value="#{msgs.tituloCiudadBusqueda}" style="margin-right: 10px; margin-bottom: 20px"/>
+					<p:inputText value="#{controllerPisos.ciudad}"
+						id="inputTextCiudadBusqueda"></p:inputText>
+					<br></br>
+					<p:dataTable id="tablaListadoCiudad" var="vpiso" value="#{controllerPisos.pisosClienteCiudad}" border="1">
+						<p:column>
+							<f:facet name="header" id="id">ID Piso</f:facet>#{vpiso.id}</p:column>
+						<p:column>
+							<f:facet name="header">Precio</f:facet>#{vpiso.precio}</p:column>
+						<p:column>
+							<f:facet name="header">Direccion</f:facet>#{vpiso.direccion}</p:column>
+						<p:column>
+							<f:facet name="header">Ciudad</f:facet>#{vpiso.ciudad}</p:column>
+						<p:column>
+							<f:facet name="header">Año</f:facet>#{vpiso.ano}</p:column>
+						<p:column>
+							<f:facet name="header">Estado</f:facet>#{vpiso.estado}</p:column>
+						<p:column>
+							<f:facet name="header">#{msgs.tablaVisitar}</f:facet>
+							<p:growl id="mensajePisoAñadidoParaVisitar"/>
+							<h:commandLink action="#{controllerPisoParaVisitar.visitar(vpiso.id)}"
+								type="submit" value="#{msgs.tablaVisitar}" immediate="true" update="tablaListadoCiudad" >
+								<p:ajax update="mensajePisoAñadidoParaVisitar" listener="#{controllerPisoParaVisitar.mostrarMensajePisoAñadidoParaVisitar(vpiso.ID)}" /> 
+							</h:commandLink>
+						</p:column>
+						<p:column>
+							<f:facet name="header">#{msgs.tablaEnProcesoDeVisita}</f:facet>
+							<p:selectBooleanCheckbox id="enProcesoDeVisita" value="#{vpiso.visitado}" disabled="true"/>
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+				<p:tab title="#{msgs.tituloListadoPorPrecio}">
+					<p:commandButton value="#{msgs.tituloListadoPorPrecio}" style="margin-right: 20px; margin-bottom: 20px"
+						action="#{controllerPisos.filtraPorPrecio}"
+						update="tablaListadoPrecio" inmediate="true"></p:commandButton>
+					<h:outputText value="#{msgs.tituloCampoPrecioMin}" style="margin-right: 10px; margin-bottom: 20px"/>
+					<p:inputText value="#{controllerPisos.precioMinimo}" style="margin-right: 40px; margin-bottom: 20px"
+						id="inputTextMinPrecio"></p:inputText>
+					<h:outputText value="#{msgs.tituloCampoPrecioMax}" style="margin-right: 10px; margin-bottom: 20px" />
+					<p:inputText value="#{controllerPisos.precioMaximo}"
+						id="inputTextMaxPrecio"></p:inputText>
+						<br></br>
+						<p:dataTable id="tablaListadoPrecio" var="vpiso" value="#{controllerPisos.pisosClientePrecio}" border="1">
+							<p:column>
+								<f:facet name="header">ID Piso</f:facet>#{vpiso.id}</p:column>
+							<p:column>
+								<f:facet name="header">Precio</f:facet>#{vpiso.precio}</p:column>
+							<p:column>
+								<f:facet name="header">Direccion</f:facet>#{vpiso.direccion}</p:column>
+							<p:column>
+								<f:facet name="header">Ciudad</f:facet>#{vpiso.ciudad}</p:column>
+							<p:column>
+								<f:facet name="header">Año</f:facet>#{vpiso.ano}</p:column>
+							<p:column>
+								<f:facet name="header">Estado</f:facet>#{vpiso.estado}</p:column>
+							<p:column>
+								<f:facet name="header">#{msgs.tablaVisitar}</f:facet>
+								<p:growl id="mensajePisoAñadidoParaVisitar2"/>
+								<h:commandLink action="#{controllerPisoParaVisitar.visitar(vpiso.id)}"
+									type="submit" value="#{msgs.tablaVisitar}" immediate="true" update="tablaListadoPrecio" >
+									<p:ajax update="mensajePisoAñadidoParaVisitar2" listener="#{controllerPisoParaVisitar.mostrarMensajePisoAñadidoParaVisitar(vpiso.ID)}" /> 
+								</h:commandLink>
+							</p:column>
+							<p:column>
+								<f:facet name="header">#{msgs.tablaEnProcesoDeVisita}</f:facet>
+								<p:selectBooleanCheckbox id="enProcesoDeVisita" value="#{vpiso.visitado}" disabled="true"/>
+							</p:column>
+						</p:dataTable>
+				</p:tab>
+			</p:tabView>
+		</h:form>
+	</ui:define>
+	<ui:define name="pie">
+		<h:form id="form-pie">
+			<ui:include src="/snippets/pie-casa.xhtml" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+

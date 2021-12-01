@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/template-general-agentes.xhtml">
+
+	<ui:define name="titulo">#{msgs.tituloOperacionListado}
+  </ui:define>
+	<ui:define name="cuerpo">
+	<h2>Listado de Pisos para Visitar:</h2>
+	<h:form>
+			<h:dataTable var="vpisovisita" value="#{pisosParaVisitar.pisosParaVisitar}" border="1">
+				<p:column>
+					<f:facet name="header">ID Piso</f:facet>#{vpisovisita.p}</p:column>
+				<p:column>
+					<f:facet name="header">ID Cliente</f:facet>#{vpisovisita.c}</p:column>
+				<p:column>
+					<f:facet name="header">Fecha Hora Cita</f:facet>#{vpisovisita.fechaHoraCita}</p:column>
+				<p:column>
+					<f:facet name="header">Estado</f:facet>#{vpisovisita.estado}</p:column>
+				<p:column>
+					<f:facet name="header">#{msgs.tablaEditar}</f:facet>
+					<p:commandLink action="editar" type="submit"
+						value="#{msgs.tablaEditar}"
+						actionListener="#{pisosParaVisitar.setPisoParaVisitar(vpisovisita)}" immediate="true">
+					</p:commandLink>
+				</p:column>
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+	<ui:define name="pie">
+		<ui:include src="/snippets/pie-casa-agentes.xhtml" />
+	</ui:define>
+</ui:composition>

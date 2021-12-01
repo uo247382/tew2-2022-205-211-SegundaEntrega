@@ -1,0 +1,52 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<h:panelGrid id="Grid" columns="2" cellpadding="5">
+		#{msgs.tablaCorreo} 
+  		<h:panelGroup>
+			<p:inputText value="#{pisosParaVisitar.login}" required="true"
+				requiredMessage="#{msgs.formAlta_correo_requiredMessage}"
+				validatorMessage="#{msgs.formAlta_correo_validatorMessage}"
+				id="correo">
+				<f:validateRegex pattern=".+@.+\.[a-z]+" />
+			</p:inputText>
+			<p:message for="correo" />
+		</h:panelGroup>
+		#{msgs.passwd} 
+ 		<h:panelGroup>
+			<p:password value="#{pisosParaVisitar.login}" required="True" id="pass1"
+				match="pass2"
+				validatorMessage="#{msgs.formAlta_passwd_validatorMessage}"
+				requiredMessage="#{msgs.formAlta_passwd_requiredMessage}" />
+		</h:panelGroup>
+		#{msgs.confirmarPasswd}
+		<h:panelGroup>
+			<p:password value="#{pisosParaVisitar.login}" required="false" id="pass2" />
+		</h:panelGroup>
+		#{msgs.tablaNombre} 
+  		<h:panelGroup>
+			<p:inputText value="#{pisosParaVisitar.login}" required="true"
+				requiredMessage="#{msgs.formAlta_nombre_requiredMessage}"
+				validatorMessage="#{msgs.formAlta_nombre_validatorMessage}"
+				id="nombre">
+				<f:validateLength minimum="2" maximum="20" />
+			</p:inputText>
+			<p:message for="nombre" />
+		</h:panelGroup> 
+  		#{msgs.tablaApellidos} 
+ 		 <h:panelGroup>
+			<p:inputText value="#{pisosParaVisitar.login}" required="true"
+				requiredMessage="#{msgs.formAlta_apellidos_requiredMessage}"
+				validatorMessage="#{msgs.formAlta_apellidos_validatorMessage}"
+				id="apellidos">
+				<f:validateLength minimum="2" maximum="40" />
+			</p:inputText>
+			<p:message for="apellidos" />
+		</h:panelGroup> 
+		<h:commandButton value="#{msgs.botonSalvar}"
+			action="#{controllerCliente.salva}" update="Grid">
+		</h:commandButton>
+	</h:panelGrid>
+</ui:composition>
