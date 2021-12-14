@@ -11,5 +11,6 @@ public interface AgenteService {
 	Agente findById(Long id) throws EntityNotFoundException;
 	void saveAgente(Agente cliente) throws EntityAlreadyExistsException;
 	void updateAgente(Agente cliente) throws EntityNotFoundException;
+	void reinicioBaseDatos() throws Exception ;
 	void deleteAgente(Long id) throws EntityNotFoundException;
 }

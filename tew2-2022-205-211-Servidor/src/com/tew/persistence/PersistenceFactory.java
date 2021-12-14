@@ -7,5 +7,6 @@ public interface PersistenceFactory {
 	PisoDao createPisoDao();
 	ClienteDao createClienteDao();
 	PisosParaVisitarDao createPisoParaVisitarDao();
+	ReiniciarDataBaseDao reiniciar();
 }
 

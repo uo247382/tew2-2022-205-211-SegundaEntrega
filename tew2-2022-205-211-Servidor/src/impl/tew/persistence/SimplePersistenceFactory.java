@@ -3,6 +3,7 @@ package impl.tew.persistence;
 
 import com.tew.persistence.PisoDao;
 import com.tew.persistence.PisosParaVisitarDao;
+import com.tew.persistence.ReiniciarDataBaseDao;
 import com.tew.persistence.AgenteDao;
 import com.tew.persistence.ClienteDao;
 import com.tew.persistence.PersistenceFactory;
@@ -38,6 +39,12 @@ public class SimplePersistenceFactory implements PersistenceFactory {
 	public AgenteDao createAgenteDao() {
 		// TODO Auto-generated method stub
 		return new AgenteJdbcDao();
+	}
+
+	@Override
+	public ReiniciarDataBaseDao reiniciar() {
+		// TODO Auto-generated method stub
+		return new ReiniciarDataBaseJdbcDao();
 	}
 
 }

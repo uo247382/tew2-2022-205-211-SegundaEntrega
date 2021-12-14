@@ -36,5 +36,11 @@ public class SimpleAgenteService implements AgenteService {
 		new AgentesOperaciones().delete(id);
 	}
 
+	@Override
+	public void reinicioBaseDatos() throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

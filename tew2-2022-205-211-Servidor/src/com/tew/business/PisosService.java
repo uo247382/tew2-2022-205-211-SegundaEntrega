@@ -30,6 +30,7 @@ public interface PisosService {
 	List<Piso> getPisosClienteCiudad(String Ciudad, Long idCliente) throws Exception;
 	List<Piso> getPisosClientePrecio(Double minPrecio, Double maxPrecio, Long idCliente) throws Exception;
 	void savePisoAgente(Long idAgente, Piso piso) throws EntityAlreadyExistsException;
+	 
 	
 	void duplicarPiso(Piso piso) throws Exception;
 }
