@@ -1,123 +1,112 @@
 <!-- 
 ***************************************************
-Asignatura: Tecnologías Web
-Titulación: GIITIN
+Asignatura: TecnologÃ­as Web
+TitulaciÃ³n: GIITIN
 Autor     : Enrique
 Universidad de Oviedo
 ***************************************************
 -->
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Tecnologías Web</title>
-</head>
-  <body>
-    <!-- 
-	***************************************************
-	* CABECERA DE LA PAGINA ***************************
-	***************************************************
-	-->
-	
-		<h1>Tecnologías Web</h1>
-	<!-- 
-	***************************************************
-	* MENU ********************************************
-	***************************************************
-	-->
-	<div>
-		<ul>
-			<li>Alumnos
-				<ul>
-					<li><a href="altaAlumno.html">Alta</a></li>
-					<li><a href="#bajaAlumno">Baja</a></li>
-					<li><a href="#edicionAlumno">Edicion</a></li>
-					<li><a href="#listadoAlumnos">Listado</a></li>
-					<li><a href="#matricularAsignaturas" >Matricular
-							Asignaturas</a></li>
-					<li><a href="#desmatricularAsignaturas" >Quitar
-							Asignaturas</a></li>
-				</ul>
-			</li>
-			<li>Asignaturas
-				<ul>
-					<li><a href="#altaAsignatura" >Alta</a>
-					</li>
-					<li><a href="#bajaAsignatura" >Baja</a></li>
-					<li><a href="#edicionAsignatura" >Edicion</a></li>
-					<li><a href="#listadoAsignatura" >Listado</a></li>
-				</ul>
-			</li>
-			<li><a href="#">Calificaciones</a></li>
-			<li>Sesión
-				<ul>
-					<li><a href="login.html" >Login</a></li>
-					<li><a href="#logout" >Logout</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-
-	<!-- 
-	***************************************************
-	* SECCION PRINCIPAL DE FORMULARIOS         ********
-	***************************************************
-
-	-->
-  	<div>
-		<div>
-			<h1>Login alumno</h1>
-			<pre>
-			Septiembre 14th, 2014
-		</pre>
-
-		</div>
-		<div>
-			<p>Datos para un nuevo alumno:</p>
-			<form id="login" action="#" enctype="application/x-www-form-urlencoded">
-			<p>
-				Login:
-				<input type="text" name="username" id="username" size="25"/>
-			</p>
-			<p>
-				Contraseña:
-				<input type="password" name="passwd" id="passwd" size="25"/>
-			</p>
-			<p>
-				<input type="submit" name="submit" id="submit" value="Enviar"/>
-				<input type="reset" name="reset" id="reset" value="Reiniciar"/>
-			</p>
-		</form>
-		</div>
-	</div>
-	
-	<!-- 
-	***************************************************
-	* ELEMENTO LATERAL INFORMATIVO ********************
-	***************************************************
-	-->
-	<div>
+	<head>
+		<title>TecnologÃ­as Web</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<h2>Proyecto GestioneitorCli v0.0</h2>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<script src="jquery/Jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="jquery/datatables.min.js"></script>
 		
-		<p>En este proyecto de partida para la asignatura se incluyen:
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="http://localhost:8080/gestioneitorv2_0/rest-jsapi"></script>
+		<script type="text/javascript" src="javascript/functions_crudpiso.js"></script>
 		
-		<ol>
-			<li>Secciones básicas para estructurar el código de GestioneitorCli en HTML4. </li>
-		</ol>
-	</div>
-
-
-	<!-- 
-	***************************************************
-	* ELEMENTO PIE DE NAVEGACION** ********************
-	***************************************************
-	-->
-	<div>
-			<ul>
-				<li><a href="#">Casa</a></li>
-				<li><a href="#">Contacto</a></li>
-			</ul>
-	</div>	 
-</body>
+		<link rel="stylesheet" href="bootstrap/css/datatables.min.css">
+	</head>
+  	<body style="background-color:Azure">
+  		<div class="container">
+    		<!-- 
+			***************************************************
+			* CABECERA DE LA PAGINA ***************************
+			***************************************************
+			-->
+			<div class="page-header">
+				<h1>Agencia de Pisos</h1>
+				<br>
+				<!-- 
+				***************************************************
+				* MENU  DINAMICO **********************************
+				***************************************************
+				-->
+				<nav class="navbar navbar-default" style="background-color: LightSkyBlue; padding-right: 50px; padding-left: 10px;">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">Gestioneitor</a>
+					</div>
+					<div>
+						<ul class="nav navbar-nav">
+							<li class="dropdown">
+								<a class="dropdown-toggle"
+									data-toggle="dropdown" href="#">Publico<span
+									class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="listadoPisos.html" target="formulario">Listado de Pisos</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="login.html" target="formulario"><span
+								class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+			<div class="row">
+				<!-- 
+				***************************************************
+				* SECCION PRINCIPAL DE FORMULARIOS EXTERNOS********
+				***************************************************
+				-->
+				<div class="col-md-9">
+					<object name="formulario" type="text/hetml" data="login.html" width="100%"
+						height="425px"></object>
+				</div>
+				<!-- 
+				***************************************************
+				* ELEMENTO LATERAL INFORMATIVO ********************
+				***************************************************
+				-->
+				<div class="col-md-3 bg-info">
+					<aside>
+						<header>
+							<h2>Proyecto Gestioneitor Cliente v1.0</h2>
+						</header>
+						<p>En este proyecto se incorporan las siguientes
+							caracterÃ­sticas:
+						<ol>
+							<li>CRUD de la entidad piso</li>
+							<li>Consumo de servicios Rest para las operaciones de CRUD anteriores</li>
+						</ol>
+					</aside>
+				</div>
+			</div>
+			<br>
+			<!-- 
+			***************************************************
+			* ELEMENTO PIE DE NAVEGACION** ********************
+			***************************************************
+			-->
+			<div class="panel panel-default" style="background-color: LightSkyBlue;">
+				<div class="panel-footer" style="background-color: LightSkyBlue;">
+					<nav>
+						<ul>
+							<li><a href="index.html">Casa</a></li>
+							<li><a href="#">Contacto</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>	 
+	</body>
 </html>
