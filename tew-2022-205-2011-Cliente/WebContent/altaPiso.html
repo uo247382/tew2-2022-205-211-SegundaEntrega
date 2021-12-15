@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Tecnologias Web</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<script src="jquery/Jquery-1.11.3.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="http://localhost:8080/gestioneitorv2_0/rest-jsapi"></script>
+		<script type="text/javascript" src="javascript/functions_crudpiso.js"></script>
+		<script type="text/javascript" src="bootstrap/js/datatables.min.js"></script>
+	</head>
+	<body style="margin-left: 20px; margin-right: 20px; background-color: Azure">
+		<section>
+			<article>
+				<h3>Formulario de piso:</h3>
+				<form id="frmCRUDPisos">
+					<div class="form-group">
+						<label for="id">ID:</label> 
+						<input type="number" id="id" class="form-control" readonly="readonly"/> 
+					</div>
+					<div class="form-group">
+						<label for="idAgente">IDAgente:</label> 
+						<input type="number" id="idAgente" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label for="precio">Precio:</label> 
+						<input type="number" id="precio" required class="form-control" />
+					</div>
+					<div class="form-group">
+						<label for="direccion">Dirección:</label> 
+						<input type="text" id="direccion" required class="form-control" size="50" />
+					</div>
+					<div class="form-group">
+						<label for="ciudad">Ciudad:</label> 
+						<input type="text" id="ciudad" required class="form-control" size="50" />
+					</div>
+					<div class="form-group">
+						<label for="año">Año:</label> 
+						<input type="number" id="año" required class="form-control" size="4" />
+					</div>
+					<div class="form-group">
+						<label for="estado">Estado:</label> 
+						<select class="form-control"id="estado">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="foto">Foto:</label> <input type="text" id="foto" />
+					</div>
+					<input type="submit" value="Salvar" id="btnSave" required class="btn btn-default" /> 
+					<input type="reset" value="Reset" id="btnReset" required class="btn btn-default" />
+				</form>
+			</article>
+		</section>
+	</body>
+</html>

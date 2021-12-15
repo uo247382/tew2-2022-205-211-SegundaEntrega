@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Tecnologias Web</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<script src="jquery/Jquery-1.11.3.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://localhost:8080/gestioneitorv2_0/rest-jsapi"></script>
+	<script type="text/javascript" src="javascript/functions_crudpiso.js"></script>
+	<script type="text/javascript" src="bootstrap/js/datatables.min.js"></script>
+	<style>
+		.header_fijo {
+			table-layout: fixed;
+			border-collapse: collapse;
+		}
+
+		.header_fijo thead tr {
+			display: block;
+			position: sticky;
+		}
+
+		.header_fijo tbody {
+			display: block;
+			overflow-y: auto;
+			height: 120px;
+		}
+
+		thead tr th {
+			position: sticky;
+			top: 0;
+			z-index: 10;
+			background-color: #87CEFA;
+		}
+
+		.table-responsive {
+			height: 180px;
+			overflow-y: scroll;
+			width: 100%;
+		}
+	</style>
+	</head>
+	<body style="margin-left: 20px; margin-right: 20px; background-color: Azure">
+		<div class="container">
+			<div class="headerListado">
+				<h3>Listado de Pisos</h3>
+			</div>
+			<div class="menuListado">
+				<h5>Imagen del piso:</h5>
+				<canvas id="canvas" width="400" height="150" style="background-color: MistyRose"></canvas>
+			</div>
+			<div class="contenidoListado">
+				<article class="table-responsive">
+					<table class="table table-dark table-hover table-responsive" id="tblList">
+					</table>
+				</article>
+			</div>	
+		</div>
+	</body>
+</html>

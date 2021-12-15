@@ -365,7 +365,7 @@ function Controller(varmodel, varview) {
 					// Cargamos la imagen en la variable
 					//imagen.src = "http://localhost:2000/gestioneitorCli1_0/" + piso.foto;
 					//imagen.src = "album/" + piso.foto;
-					imagen.src = "http://localhost:2000/gestioneitorCli1_0/" + piso.foto;
+					imagen.src = "http://localhost:2000/gestioneitorCli1_0/album/" + piso.foto;
 					console.log(imagen.src);
 					// Una vez definida la imagen, la dibujamos en el canvas
 					context.drawImage(imagen, 0, 0, imagen.width, imagen.height, 0, 0, 300, 300);
@@ -474,7 +474,7 @@ function Controller(varmodel, varview) {
 				function() {
 
 			$.ajax({
-				url : "http://localhost:8080/gestioneitorv2_0/pisos.json",
+				url : "http://localhost:8080/tew2-2022-205-211-Servidor/pisos.json",
 				type : "GET",
 				dataType : "json",
 				// Listado de pisos (función de callback)
