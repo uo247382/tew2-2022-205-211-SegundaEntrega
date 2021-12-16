@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<script src="jquery/Jquery-1.11.3.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="javascript/sorttable.js"></script>
+<script type="text/javascript"
+	src="http://localhost:8080/tew2-2022-205-211-Servidor/rest-jsapi"></script>
+<script type="text/javascript" src="javascript/functions_crudpiso.js"></script>
+<script type="text/javascript" src="bootstrap/js/datatables.min.js"></script>
+<meta charset="ISO-8859-1">
+<title>Listado de Pisos</title>
+</head>
+<style>
+table.dataTable thead .sorting:after, table.dataTable thead .sorting:before,
+	table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_asc:before,
+	table.dataTable thead .sorting_asc_disabled:after, table.dataTable thead .sorting_asc_disabled:before,
+	table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_desc:before,
+	table.dataTable thead .sorting_desc_disabled:after, table.dataTable thead .sorting_desc_disabled:before
+	{
+	bottom: .5em;
+}
+</style>
+
+<body>
+	<br>
+	<!-- Seccion para mostrar los pisos -->
+	<!-- <form id="filtrarCiudad">
+		Filtrar ciudad: <input type="text" id="ciudadFiltro" value="">
+	</form>
+			 --> 
+
+	<br>
+	<section> 
+		<article class="table-responsive">
+			<table class="sortable table table-striped table-responsive "
+				id=tbPiso></table>
+		</article>
+	</section>
+	<canvas id="myCanvas" width="300" height="300"
+		z></canvas>
+
+	<script>    
+		$(document).ready(function() {
+			$('#tbPiso').DataTable({
+				"paging" : false,
+				"info" : false,
+				columnDefs : [ {
+					orderable : false,
+					targets : [ 0, 1, 2, 4, 5, 6, 7, 8 ]
+				}, {
+					searchable : false,
+					targets : [ 0, 1, 2, 3, 4, 6, 7, 8 ]
+				}, {
+					visible : false,
+					targets : [ 0, 2 ]
+				}, ]
+			});
+		});
+	</script>
+
+</body>
+</html>
+
+
+
+
+
+

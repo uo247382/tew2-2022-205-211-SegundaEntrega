@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<script src="jquery/Jquery-1.11.3.min.js"></script>
+<script src="javascript/sorttable.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="http://localhost:8080/tew2-2022-205-211-Servidor/rest-jsapi"></script>
+<script type="text/javascript" src="javascript/functions_crudpiso.js"></script>
+<meta charset="ISO-8859-1">
+<title>Listado de Pisos</title>
+</head>
+<body>
+	<!-- Seccion para mostrar los pisos -->
+	<input type="submit" value="Importar Pisos" id="btnImportarPisos" required class="btn btn-default" />
+	<canvas id="myCanvas" width="300" height="300"
+		style="border: 1px solid #d3d3d3;"></canvas>
+	<section>
+		<article class="table-responsive">
+			<table class="sortable table table-striped table-responsive " id="tbPiso"></table>
+		<input type="button" value="Borrar pisos" id="btnBorrarPisos" required class="btn btn-default" />	
+		</article>
+	</section>
+	
+</body>
+</html>
