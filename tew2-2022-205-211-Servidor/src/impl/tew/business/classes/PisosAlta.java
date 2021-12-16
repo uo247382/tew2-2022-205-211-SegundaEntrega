@@ -7,13 +7,15 @@ import com.tew.persistence.PisoDao;
 import com.tew.persistence.exception.AlreadyPersistedException;
 
 public class PisosAlta {
-	public void save(Piso piso) throws EntityAlreadyExistsException {
+
+	public void save(Piso p) throws EntityAlreadyExistsException {
 		PisoDao dao = Factories.persistence.createPisoDao();
 		try {
-			dao.save(piso);
+			dao.save(p);
 		}
 		catch (AlreadyPersistedException ex) {
-			throw new EntityAlreadyExistsException("Piso ya existe " + piso, ex);
+			throw new EntityAlreadyExistsException("Piso ya existe " + p, ex);
 		}
 	}
+
 }

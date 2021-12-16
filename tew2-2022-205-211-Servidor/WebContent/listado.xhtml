@@ -4,25 +4,27 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
 	template="/templates/template-general.xhtml">
+
 	<ui:define name="titulo">
-    	#{msgs.tituloOperacionListado}
-  	</ui:define>
+    #{msgs.tituloOperacionListado}
+  </ui:define>
+
 	<ui:define name="cuerpo">
 		<h:form>
-			<p:dataTable id="tablaListado" var="vpiso" value="#{controller.pisos}" border="1">
+			<p:dataTable var="vpiso" value="#{controller.pisos}" border="1" id="tablaListado">
 				<p:column>
-					<f:facet name="header" id="id">#{msgs.tablaIdPiso}</f:facet>#{vpiso.id}</p:column>
+					<f:facet name="header" id ="id" >#{msgs.tablaIdPiso}</f:facet>#{vpiso.id}</p:column>
 				<p:column>
 					<f:facet name="header">#{msgs.tablaIdAgente}</f:facet>#{vpiso.idAgente}</p:column>
 				<p:column>
 					<f:facet name="header">#{msgs.tablaPrecioPiso}</f:facet>#{vpiso.precio}</p:column>
 				<p:column>
 					<f:facet name="header">#{msgs.tablaDireccionPiso}</f:facet>#{vpiso.direccion}</p:column>
-					<p:column>
+				<p:column>
 					<f:facet name="header">#{msgs.tablaCiudadPiso}</f:facet>#{vpiso.ciudad}</p:column>
-					<p:column>
+				<p:column>
 					<f:facet name="header">#{msgs.tablaAnoPiso}</f:facet>#{vpiso.ano}</p:column>
-					<p:column>
+				<p:column>
 					<f:facet name="header">#{msgs.tablaEstadoPiso}</f:facet>#{vpiso.estado}</p:column>
 				<p:column>
 					<f:facet name="header">#{msgs.tablaBaja}</f:facet>
@@ -31,24 +33,26 @@
 					</h:commandLink>
 				</p:column>
 				<p:column>
-					<f:facet name="header">#{msgs.seleccionarPiso}</f:facet>
-					<h:commandLink action="#{vistas.salva(vpiso.id)}" type="submit" value="#{msgs.seleccionarPiso}"
-						immediate="true">
+				<f:facet name="header">#{msgs.seleccionarPiso}</f:facet>
+				<h:commandLink action="#{visitas.salva(vpiso.id) }" type="submit"
+						value="#{msgs.seleccionarPiso}" immediate="true">
 					</h:commandLink>
 				</p:column>
 				<p:column>
 					<f:facet name="header">#{msgs.tablaEditar}</f:facet>
-					<h:commandLink action="editar" type="submit" value="#{msgs.tablaEditar}"
-						actionListener="#{psio.setPiso(vpiso)}" immediate="true">
+					<h:commandLink action="editar" type="submit"
+						value="#{msgs.tablaEditar}"
+						actionListener="#{piso.setPiso(vpiso)}" immediate="true">
 					</h:commandLink>
 				</p:column>
 			</p:dataTable>
 			<p:inputText id = "input" value ="#{controller.ciudad}"></p:inputText>
-			<p:commandButton value="filtrado" action="#{controller.listadoCiudad}"
+			<p:commandButton value= "filtrado" action="#{controller.listadoCiudad}" 
 				update="tablaListado" inmediate="true"></p:commandButton>
+				
 			<p:inputText id = "precioMin" value ="#{controller.precioMinimo}"></p:inputText>
 			<p:inputText id = "precioMax" value ="#{controller.precioMaximo}"></p:inputText>
-			<p:commandButton value="Por precios" action="#{controller.filtraPorPrecio}"
+			<p:commandButton value= "Por precios" action="#{controller.filtraPorPrecio}" 
 				update="tablaListado" inmediate="true"></p:commandButton>
 			<p:commandButton value="Restaurar Lista" action="#{controller.listado}" update="tablaListado" inmediate="True"></p:commandButton>
 		</h:form>

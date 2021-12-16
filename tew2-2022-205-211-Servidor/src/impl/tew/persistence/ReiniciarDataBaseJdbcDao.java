@@ -30,16 +30,16 @@ public class ReiniciarDataBaseJdbcDao implements ReiniciarDataBaseDao {
 		//ejecutaSQL("delete from Clientes");
 		
 		
-		ejecutaSQL("INSERT INTO AGENTES VALUES(0,'Alfredo@agentes.com','Alfredo')");
-		ejecutaSQL("INSERT INTO AGENTES VALUES(1,'Amanda@agentes.com','Amanda')");
+		ejecutaSQL("INSERT INTO AGENTES VALUES(3,'agente1@micorreo.com','clave1')");
+		ejecutaSQL("INSERT INTO AGENTES VALUES(4,'agente2@micorreo.com','clave2')");
 		
 		//ejecutaSQL("INSERT INTO CLIENTES VALUES(3,'user1@micorreo.com','clave1','JOSE CARLOS','DIAZ RUENEZ','user1@micorreo.com')"); 
 		//ejecutaSQL("INSERT INTO CLIENTES VALUES(4,'user2@micorreo.com','clave2','PABLO','GONZALEZ GONZALEZ','user2@micorreo.com')");
 		
-		ejecutaSQL("INSERT INTO PISOS VALUES(0,0,200000,'Calle del Paraiso','Oviedo',1989,4,'foto3.jpg')");
-		ejecutaSQL("INSERT INTO PISOS VALUES(1,0,3000,'Calle de Arriba','Oviedo',1989,2,'foto4.jpg')");
-		ejecutaSQL("INSERT INTO PISOS VALUES(2,0,2230,'Calle de Abajo','Oviedo',1989,5,'foto5.jpg')");
-		ejecutaSQL("INSERT INTO PISOS VALUES(3,0,5000,'Calle del Cuba','Aviles',1989,2,'foto6.jpg')");
+		//ejecutaSQL("INSERT INTO PISOS VALUES(1,3,235000,'CALLE PEDRO DUQUE','VALENCIA',2005,3, 'casa1.jpg')");
+		//ejecutaSQL("INSERT INTO PISOS VALUES(2,3,150000,'PLAZA REPUBLICA','BARCELONA',2017,5, 'casa2.jpg')");
+		//ejecutaSQL("INSERT INTO PISOS VALUES(3,4,500000,'AVENIDA DEL PRADO','MADRID',2010,5, 'casa3.jpg')");
+		//ejecutaSQL("INSERT INTO PISOS VALUES(4,4,75000,'RUTA DE LA APARICION','SEVILLA',2001,2, 'casa4.jpg')");
 		
 		//ejecutaSQL("insert into PISOS_PARA_VISITAR values (1, 3, 1238123, 2)");
 		//ejecutaSQL("insert into PISOS_PARA_VISITAR values (2, 4, 1238123, 1)");

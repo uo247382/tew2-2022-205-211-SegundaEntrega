@@ -19,7 +19,6 @@ public class SimplePersistenceFactory implements PersistenceFactory {
 
 	@Override
 	public PisoDao createPisoDao() {
-		// TODO Auto-generated method stub
 		return new PisoJdbcDao();
 	}
 
@@ -30,15 +29,15 @@ public class SimplePersistenceFactory implements PersistenceFactory {
 	}
 
 	@Override
-	public PisosParaVisitarDao createPisoParaVisitarDao() {
-		// TODO Auto-generated method stub
-		return new PisosParaVisitarJdbcDao();
-	}
-
-	@Override
 	public AgenteDao createAgenteDao() {
 		// TODO Auto-generated method stub
 		return new AgenteJdbcDao();
+	}
+
+	@Override
+	public PisosParaVisitarDao createPisoParaVisitarDao() {
+		// TODO Auto-generated method stub
+		return new PisosParaVisitarJdbcDao();
 	}
 
 	@Override
@@ -46,5 +45,7 @@ public class SimplePersistenceFactory implements PersistenceFactory {
 		// TODO Auto-generated method stub
 		return new ReiniciarDataBaseJdbcDao();
 	}
+	
+	
 
 }

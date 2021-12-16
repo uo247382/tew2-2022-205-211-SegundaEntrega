@@ -20,17 +20,10 @@ import com.tew.model.Piso;
  *
  */
 public interface PisosService {
+
 	List<Piso> getPisos() throws Exception;
 	Piso findById(Long id) throws EntityNotFoundException;
-	void savePiso(Piso piso) throws EntityAlreadyExistsException;
-	void updatePiso(Piso piso) throws EntityNotFoundException;
+	void savePiso(Piso p) throws EntityAlreadyExistsException;
+	void updatePiso(Piso p) throws EntityNotFoundException;
 	void deletePiso(Long id) throws EntityNotFoundException;
-	List<Piso> getPisosCliente(Long idCliente) throws Exception;
-	List<Piso> getPisosAgente(Long idAgente) throws Exception;
-	List<Piso> getPisosClienteCiudad(String Ciudad, Long idCliente) throws Exception;
-	List<Piso> getPisosClientePrecio(Double minPrecio, Double maxPrecio, Long idCliente) throws Exception;
-	void savePisoAgente(Long idAgente, Piso piso) throws EntityAlreadyExistsException;
-	 
-	
-	void duplicarPiso(Piso piso) throws Exception;
 }

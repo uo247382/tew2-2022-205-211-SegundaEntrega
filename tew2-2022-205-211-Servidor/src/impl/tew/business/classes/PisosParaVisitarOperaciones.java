@@ -11,66 +11,57 @@ import com.tew.persistence.exception.AlreadyPersistedException;
 import com.tew.persistence.exception.NotPersistedException;
 
 public class PisosParaVisitarOperaciones {
-	public void save(PisoParaVisitar pisoParaVisitar) throws EntityAlreadyExistsException {
+	public void save(PisoParaVisitar pv) throws EntityAlreadyExistsException{
 		PisosParaVisitarDao dao = Factories.persistence.createPisoParaVisitarDao();
 		try {
-			dao.save(pisoParaVisitar);
-		} catch (AlreadyPersistedException ex) {
-			throw new EntityAlreadyExistsException("PisoParaVisitar ya existe " + pisoParaVisitar, ex);
-		}
-	}
-
-	public void delete(Long iDPiso, Long iDCliente) throws EntityNotFoundException {
-		PisosParaVisitarDao dao = Factories.persistence.createPisoParaVisitarDao();
-		try {
-			dao.delete(iDPiso, iDCliente);
-		} catch (NotPersistedException ex) {
-			throw new EntityNotFoundException("PisoParaVisitar no existe" + iDPiso, ex);
+			dao.save(pv);
+		} catch (AlreadyPersistedException e) {
+			// TODO Auto-generated catch block
+			throw new EntityAlreadyExistsException("Cliente ya existe " + pv, e);
 		}
 	}
 	
-	public PisoParaVisitar find(Long iDPiso, Long iDCliente) throws EntityNotFoundException {
+	public void delete(Long idp, Long idc) throws EntityNotFoundException{
 		PisosParaVisitarDao dao = Factories.persistence.createPisoParaVisitarDao();
-		PisoParaVisitar pisoParaVisitar = dao.findById(iDPiso, iDCliente);
-		if (pisoParaVisitar == null) {
-			throw new EntityNotFoundException("No se ha encontrado el PisoParaVisitar");
+		try {
+			dao.delete(idp, idc);
+		} catch (NotPersistedException e) {
+			// TODO Auto-generated catch block
+			throw new EntityNotFoundException("Piso para visitar no existe " + idp, e);
 		}
-		return pisoParaVisitar;
 	}
 	
-	public List<PisoParaVisitar> getPisoParaVisitar() throws Exception {
-		System.out.println("ANTESSSSSS mal PisosParaVisitarOperaciones");
-
+	public PisoParaVisitar find(Long idp, Long idc) throws EntityNotFoundException{
 		PisosParaVisitarDao dao = Factories.persistence.createPisoParaVisitarDao();
-		System.out.println("DESPUESSSSSS mal    PisosParaVisitarOperaciones");
-
+		PisoParaVisitar a = dao.findById(idp, idc);
+		if ( a == null) {
+			throw new EntityNotFoundException("No se ha encontrado el Piso para visitar");
+		}
+		
+		return a;
+	}
+	
+	public List<PisoParaVisitar> getPisosParaVisitar() throws Exception{
+		PisosParaVisitarDao dao = Factories.persistence.createPisoParaVisitarDao();
 		return dao.getPisosParaVisitar();
 	}
 	
-	public List<PisoParaVisitar> getPisoParaVisitarAgente() throws Exception {
-		System.out.println("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeste pisosparavisitarOperaciones");
-
-		PisosParaVisitarDao dao = Factories.persistence.createPisoParaVisitarDao();
-		System.out.println("DESPUESSSSSS    PisosParaVisitarOperaciones");
-
-		return dao.getPisosParaVisitarAgente();
-	}
-	
-	public void update2(PisoParaVisitar pisoParaVisitar) throws EntityNotFoundException {
+	public void update2(PisoParaVisitar c) throws EntityNotFoundException{
 		PisosParaVisitarDao dao = Factories.persistence.createPisoParaVisitarDao();
 		try {
-			dao.update2(pisoParaVisitar);
-		} catch (NotPersistedException ex) {
-			throw new EntityNotFoundException("PisoParaVisitar no actualizado" + pisoParaVisitar, ex);
+			dao.update2(c);
+		} catch (NotPersistedException e) {
+			// TODO Auto-generated catch block
+			throw new EntityNotFoundException("PisoParaVisitar no actualizado " + c, e);
 		}
 	}
-	
-	public void update3(PisoParaVisitar pisoParaVisitar) throws EntityNotFoundException {
+	public void update3(PisoParaVisitar c) throws EntityNotFoundException{
 		PisosParaVisitarDao dao = Factories.persistence.createPisoParaVisitarDao();
 		try {
-			dao.update3(pisoParaVisitar);
-		} catch (NotPersistedException ex) {
-			throw new EntityNotFoundException("PisoParaVisitar no actualizado" + pisoParaVisitar, ex);
+			dao.update2(c);
+		} catch (NotPersistedException e) {
+			// TODO Auto-generated catch block
+			throw new EntityNotFoundException("PisoParaVisitar no actualizado " + c, e);
 		}
 	}
 }

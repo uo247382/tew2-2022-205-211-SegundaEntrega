@@ -1,28 +1,29 @@
 package com.tew.model;
 
 public class Agente {
-
+	private Long id;
+	private String login;
+	private String passwd;
+	
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getLogin() {
-		return Login;
+		return login;
 	}
 	public void setLogin(String login) {
-		Login = login;
+		this.login = login;
 	}
 	public String getPasswd() {
-		return Passwd;
+		return passwd;
 	}
 	public void setPasswd(String passwd) {
-		Passwd = passwd;
+		this.passwd = passwd;
 	}
-	private Long id;
-	private String Login;
-	private String Passwd;
 	
-	
+
 }

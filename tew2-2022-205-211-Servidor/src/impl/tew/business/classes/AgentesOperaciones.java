@@ -11,45 +11,58 @@ import com.tew.persistence.exception.AlreadyPersistedException;
 import com.tew.persistence.exception.NotPersistedException;
 
 public class AgentesOperaciones {
-
-	public void save(Agente agente) throws EntityAlreadyExistsException {
+	public void save(Agente c) throws EntityAlreadyExistsException{
 		AgenteDao dao = Factories.persistence.createAgenteDao();
 		try {
-			dao.save(agente);
-		} catch (AlreadyPersistedException ex) {
-			throw new EntityAlreadyExistsException("Agente ya existe " + agente, ex);
+			dao.save(c);
+		} catch (AlreadyPersistedException e) {
+			// TODO Auto-generated catch block
+			throw new EntityAlreadyExistsException("Agente ya existe " + c, e);
 		}
 	}
-
-	public void delete(Long id) throws EntityNotFoundException {
+	
+	public void delete(Long id) throws EntityNotFoundException{
 		AgenteDao dao = Factories.persistence.createAgenteDao();
 		try {
 			dao.delete(id);
-		} catch (NotPersistedException ex) {
-			throw new EntityNotFoundException("Agente no existe" + id, ex);
+		} catch (NotPersistedException e) {
+			// TODO Auto-generated catch block
+			throw new EntityNotFoundException("Agente no existe " + id, e);
 		}
 	}
 	
-	public Agente find(Long id) throws EntityNotFoundException {
+	public Agente find(Long id) throws EntityNotFoundException{
 		AgenteDao dao = Factories.persistence.createAgenteDao();
-		Agente agente = dao.findById(id);
-		if (agente == null) {
+		Agente a = dao.findById(id);
+		if ( a == null) {
 			throw new EntityNotFoundException("No se ha encontrado el alumno");
 		}
-		return agente;
+		
+		return a;
 	}
 	
-	public List<Agente> getAgentes() throws Exception {
+	public List<Agente> getAgentes() throws Exception{
 		AgenteDao dao = Factories.persistence.createAgenteDao();
 		return dao.getAgentes();
 	}
 	
-	public void update(Agente agente) throws EntityNotFoundException {
+	public void update(Agente c) throws EntityNotFoundException{
 		AgenteDao dao = Factories.persistence.createAgenteDao();
 		try {
-			dao.update(agente);
-		} catch (NotPersistedException ex) {
-			throw new EntityNotFoundException("Agente no actualizado" + agente, ex);
+			dao.update(c);
+		} catch (NotPersistedException e) {
+			// TODO Auto-generated catch block
+			throw new EntityNotFoundException("Agente no actualizado " + c, e);
 		}
 	}
+
+	public void reinicioBaseDatos() throws Exception {
+		AgenteDao dao = Factories.persistence.createAgenteDao();
+		try {
+			dao.reset();
+		} catch (Exception e) {
+			throw new Exception("Excepcion a la hora de reiniciar la base de datos " + e);
+		}
+	}
+
 }

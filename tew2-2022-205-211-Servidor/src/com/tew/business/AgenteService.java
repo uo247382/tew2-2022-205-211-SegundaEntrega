@@ -2,15 +2,15 @@ package com.tew.business;
 
 import java.util.List;
 
-import com.tew.business.exception.EntityAlreadyExistsException;
-import com.tew.business.exception.EntityNotFoundException;
 import com.tew.model.Agente;
+import com.tew.persistence.exception.AlreadyPersistedException;
+import com.tew.persistence.exception.NotPersistedException;
 
 public interface AgenteService {
-	List<Agente> getAgentes() throws Exception;
-	Agente findById(Long id) throws EntityNotFoundException;
-	void saveAgente(Agente cliente) throws EntityAlreadyExistsException;
-	void updateAgente(Agente cliente) throws EntityNotFoundException;
+	
+	void save(Agente p) throws AlreadyPersistedException;
+	void update(Agente p) throws NotPersistedException;
+	void delete(Long id) throws NotPersistedException;
 	void reinicioBaseDatos() throws Exception ;
-	void deleteAgente(Long id) throws EntityNotFoundException;
+	List<Agente> getAgentes() throws Exception ;
 }

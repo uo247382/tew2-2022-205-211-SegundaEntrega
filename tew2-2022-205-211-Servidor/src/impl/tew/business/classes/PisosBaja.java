@@ -6,6 +6,7 @@ import com.tew.persistence.PisoDao;
 import com.tew.persistence.exception.NotPersistedException;
 
 public class PisosBaja {
+
 	public void delete(Long id) throws EntityNotFoundException {
 		PisoDao dao = Factories.persistence.createPisoDao();
 		try {

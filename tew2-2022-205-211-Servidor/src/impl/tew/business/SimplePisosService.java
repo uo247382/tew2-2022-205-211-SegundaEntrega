@@ -10,25 +10,28 @@ import com.tew.business.exception.EntityAlreadyExistsException;
 import com.tew.business.exception.EntityNotFoundException;
 import com.tew.model.Piso;
 
+/**
+ * Clase de implementación (una de las posibles) del interfaz de la fachada de
+ * servicios
+ * 
+ * @author Enrique
+ * 
+ */
 public class SimplePisosService implements PisosService {
+
 	@Override
-	public List<Piso> getPisos() throws Exception {
+	public List<Piso> getPisos() throws Exception{
 		return new PisosListado().getPisos();
 	}
 
 	@Override
-	public Piso findById(Long id) throws EntityNotFoundException {
-		return new PisosBuscar().find(id);
+	public void savePiso(Piso p) throws EntityAlreadyExistsException {
+		new PisosAlta().save(p);
 	}
 
 	@Override
-	public void savePiso(Piso piso) throws EntityAlreadyExistsException {
-		new PisosAlta().save(piso);
-	}
-
-	@Override
-	public void updatePiso(Piso piso) throws EntityNotFoundException {
-		new PisosOperaciones().updatePiso(piso);
+	public void updatePiso(Piso p) throws EntityNotFoundException {
+		new PisosUpdate().update(p);
 	}
 
 	@Override
@@ -37,32 +40,8 @@ public class SimplePisosService implements PisosService {
 	}
 
 	@Override
-	public List<Piso> getPisosCliente(Long idCliente) throws Exception {
-		return new PisosOperaciones().getPisosCliente(idCliente);
+	public Piso findById(Long id) throws EntityNotFoundException {
+		return new PisosBuscar().find(id);
 	}
 
-	@Override
-	public List<Piso> getPisosAgente(Long idAgente) throws Exception {
-		return new PisosOperaciones().getPisosAgente(idAgente);
-	}
-
-	@Override
-	public List<Piso> getPisosClienteCiudad(String Ciudad, Long idCliente) throws Exception {
-		return new PisosOperaciones().getPisosClienteCiudad(Ciudad, idCliente);
-	}
-
-	@Override
-	public void savePisoAgente(Long idAgente, Piso piso) throws EntityAlreadyExistsException {
-		new PisosOperaciones().savePisoAgente(idAgente, piso);
-	}
-
-	@Override
-	public List<Piso> getPisosClientePrecio(Double minPrecio, Double maxPrecio, Long idCliente) throws Exception {
-		return new PisosOperaciones().getPisosClientePrecio(minPrecio, maxPrecio, idCliente);
-	}
-
-	@Override
-	public void duplicarPiso(Piso piso) throws Exception {
-		new PisosOperaciones().duplicarPiso(piso);
-	}
 }

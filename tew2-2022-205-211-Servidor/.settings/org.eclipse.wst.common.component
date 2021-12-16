@@ -2,7 +2,7 @@
     <wb-module deploy-name="tew2-2022-205-211-Servidor">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="java-output-path" value="/tew2-2022-205-211-Servidor/bin"/>
+        <property name="java-output-path" value="/tew2-2022-205-211-Servidor/build/classes"/>
         <property name="context-root" value="tew2-2022-205-211-Servidor"/>
     </wb-module>
 </project-modules>

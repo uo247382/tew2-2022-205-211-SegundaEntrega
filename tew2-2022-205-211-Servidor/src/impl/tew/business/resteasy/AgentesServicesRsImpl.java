@@ -2,43 +2,39 @@ package impl.tew.business.resteasy;
 
 import java.util.List;
 
-import com.tew.business.exception.EntityAlreadyExistsException;
-import com.tew.business.exception.EntityNotFoundException;
 import com.tew.business.resteasy.AgentesServicesRs;
 import com.tew.model.Agente;
 
+import com.tew.persistence.exception.AlreadyPersistedException;
+import com.tew.persistence.exception.NotPersistedException;
+
 import impl.tew.business.classes.AgentesOperaciones;
 
-public class AgentesServicesRsImpl implements AgentesServicesRs {
+
+public class AgentesServicesRsImpl implements AgentesServicesRs{
 
 	@Override
-	public Agente findById(Long id) throws EntityNotFoundException {
+	public void save(Agente p) throws AlreadyPersistedException {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	@Override
-	public void saveAgente(Agente cliente) throws EntityAlreadyExistsException {
+	public void update(Agente p) throws NotPersistedException {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void updateAgente(Agente cliente) throws EntityNotFoundException {
+	public void delete(Long id) throws NotPersistedException {
 		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void deleteAgente(Long id) throws EntityNotFoundException {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void reinicioBaseDatos() throws Exception {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -53,5 +49,4 @@ public class AgentesServicesRsImpl implements AgentesServicesRs {
 			return null;
 		}
 	}
-
 }

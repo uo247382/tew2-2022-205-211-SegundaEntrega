@@ -59,40 +59,4 @@ public class PisosServicesRsImpl implements PisosServicesRs {
 		new ReiniciarDataBase().reiniciar();
 	}
 
-	@Override
-	public List<Piso> getPisosCliente(Long idCliente) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Piso> getPisosAgente(Long idAgente) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Piso> getPisosClienteCiudad(String Ciudad, Long idCliente) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Piso> getPisosClientePrecio(Double minPrecio, Double maxPrecio, Long idCliente) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void savePisoAgente(Long idAgente, Piso piso) throws EntityAlreadyExistsException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void duplicarPiso(Piso piso) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

@@ -5,6 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
+
 <f:view locale="#{settings.locale}">
 	<h:head>
 		<title>#{msgs.tituloHead}</title>
@@ -26,23 +27,35 @@
 			</table>
 			<p:menubar>
 				<p:submenu label="#{msgs.tituloOpciones}" icon="ui-icon-document">
+
 					<p:menuitem value="#{msgs.enlaceListado}"
-						action="#{controllerPisos.listadoCliente}" />
+						action="#{controller.listado}" />
 					<p:separator />
-					<p:menuitem value="#{msgs.salirSesion}" action="logout"
+					<p:menuitem value="#{msgs.enlaceAlta}" action="alta"
+						actionListener="#{piso.iniciaPiso}" />
+					<p:separator />
+					<p:menuitem value="#{msgs.enlacePisosParaVisitar}"
+						action="#{visitas.listadoAgente}" />
+					
+					<p:menuitem value="#{msgs.desconectarSesion}" action="logout"
 						actionListener="#{login.logout}"/>
+					<p:menuitem value="#{msgs.resetBaseDatos}" action="resetDB" actionListener="#{login.resetBaseDatos}"/>
 				</p:submenu>
-					<p:submenu style="float:right" label="#{msgs.textoIdioma}"
- 						icon="ui-icon-document">
- 					<p:menuitem value="#{msgs.enlaceIdiomaES}"
- 						actionListener="#{settings.setSpanish}" update="@all" />
- 					<p:menuitem value="#{msgs.enlaceIdiomaEN}"
- 						actionListener="#{settings.setEnglish}" update="@all" />
+				<p:submenu style="float:right" label="#{msgs.textoIdioma}"
+					icon="ui-icon-document">
+					<p:menuitem value="#{msgs.enlaceIdiomaES}"
+						actionListener="#{settings.setSpanish}" update="@all" />
+					<p:menuitem value="#{msgs.enlaceIdiomaEN}"
+						actionListener="#{settings.setEnglish}" update="@all" />
 				</p:submenu>
 			</p:menubar>
+
 		</h:form>
+
 		<ui:insert name="cuerpo">#{msgs.tituloDefectoCuerpo}</ui:insert>
+
 		<ui:insert name="pie">#{msgs.tituloPie}</ui:insert>
+
 	</h:body>
 </f:view>
 </html>

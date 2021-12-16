@@ -8,6 +8,7 @@ public class Cliente {
 	private String apellidos;
 	private String email;
 	
+	
 	public Long getId() {
 		return id;
 	}
@@ -44,4 +45,6 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+
 }

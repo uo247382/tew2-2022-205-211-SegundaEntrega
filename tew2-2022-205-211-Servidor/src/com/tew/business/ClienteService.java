@@ -9,8 +9,7 @@ import com.tew.model.Cliente;
 public interface ClienteService {
 	List<Cliente> getClientes() throws Exception;
 	Cliente findById(Long id) throws EntityNotFoundException;
-	void saveCliente(Cliente cliente) throws EntityAlreadyExistsException;
-	void updateCliente(Cliente cliente) throws EntityNotFoundException;
+	void saveCliente(Cliente c) throws EntityAlreadyExistsException;
+	void updateCliente(Cliente c) throws EntityNotFoundException;
 	void deleteCliente(Long id) throws EntityNotFoundException;
-
 }

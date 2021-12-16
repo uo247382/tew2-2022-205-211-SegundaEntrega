@@ -4,47 +4,54 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core">
 	<h:panelGrid id="Grid" columns="2" cellpadding="5">
-		#{msgs.tablaCorreo} 
-  		<h:panelGroup>
+
+  #{msgs.emailCliente} 
+  <h:panelGroup>
 			<p:inputText value="#{cliente.login}" required="true"
-				requiredMessage="#{msgs.formAlta_correo_requiredMessage}"
-				validatorMessage="#{msgs.formAlta_correo_validatorMessage}"
-				id="correo">
+				requiredMessage="#{msgs.formAltaCliente_email_requiredMessage}"
+				validatorMessage="#{msgs.formAltaCliente_email_validatorMessage}"
+				id="email">
 				<f:validateRegex pattern=".+@.+\.[a-z]+" />
 			</p:inputText>
-			<p:message for="correo" />
+			<p:message for="email" />
 		</h:panelGroup>
-		#{msgs.passwd} 
- 		<h:panelGroup>
+ #{msgs.passwdCliente} 
+ <h:panelGroup>
+
 			<p:password value="#{cliente.passwd}" required="True" id="pass1"
 				match="pass2"
-				validatorMessage="#{msgs.formAlta_passwd_validatorMessage}"
-				requiredMessage="#{msgs.formAlta_passwd_requiredMessage}" />
+				validatorMessage="#{msgs.formAltaCliente_passwd_matchmessage}"
+				requiredMessage="#{msgs.formAltaCliente_passwd_requiredMessage}" />
 		</h:panelGroup>
-		#{msgs.confirmarPasswd}
-		<h:panelGroup>
+  
+#{msgs.passwdClienteConfirma}
+<h:panelGroup>
 			<p:password value="#{cliente.passwd}" required="false" id="pass2" />
-		</h:panelGroup>
-		#{msgs.tablaNombre} 
-  		<h:panelGroup>
+		</h:panelGroup>  
+  
+  #{msgs.nombreCliente} 
+  <h:panelGroup>
 			<p:inputText value="#{cliente.nombre}" required="true"
-				requiredMessage="#{msgs.formAlta_nombre_requiredMessage}"
-				validatorMessage="#{msgs.formAlta_nombre_validatorMessage}"
+				requiredMessage="#{msgs.formAltaCliente_nombre_requiredMessage}"
+				validatorMessage="#{msgs.formAltaCliente_nombre_validatorMessage}"
 				id="nombre">
-				<f:validateLength minimum="2" maximum="20" />
+				<f:validateLength minimum="3" maximum="20" />
 			</p:inputText>
 			<p:message for="nombre" />
 		</h:panelGroup> 
-  		#{msgs.tablaApellidos} 
- 		 <h:panelGroup>
+  
+  #{msgs.apellidosCliente} 
+  <h:panelGroup>
 			<p:inputText value="#{cliente.apellidos}" required="true"
-				requiredMessage="#{msgs.formAlta_apellidos_requiredMessage}"
-				validatorMessage="#{msgs.formAlta_apellidos_validatorMessage}"
+				requiredMessage="#{msgs.formAltaCliente_apellidos_requiredMessage}"
+				validatorMessage="#{msgs.formAltaCliente_apellidos_validatorMessage}"
 				id="apellidos">
-				<f:validateLength minimum="2" maximum="40" />
+				<f:validateLength minimum="3" maximum="40" />
 			</p:inputText>
 			<p:message for="apellidos" />
-		</h:panelGroup> 
+		</h:panelGroup>
+
+
 		<h:commandButton value="#{msgs.botonSalvar}"
 			action="#{controllerCliente.salva}" update="Grid">
 		</h:commandButton>

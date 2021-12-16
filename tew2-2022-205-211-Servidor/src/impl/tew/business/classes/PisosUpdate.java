@@ -7,13 +7,15 @@ import com.tew.persistence.PisoDao;
 import com.tew.persistence.exception.NotPersistedException;
 
 public class PisosUpdate {
-	public void update(Piso piso) throws EntityNotFoundException {
+
+	public void update(Piso Piso) throws EntityNotFoundException {
 		PisoDao dao = Factories.persistence.createPisoDao();
 		try {
-			dao.updatePiso(piso);
+			dao.update(Piso);
 		}
 		catch (NotPersistedException ex) {
-			throw new EntityNotFoundException("Piso no eliminado " + piso, ex);
+			throw new EntityNotFoundException("Piso no eliminado " + Piso, ex);
 		}
 	}
+
 }
