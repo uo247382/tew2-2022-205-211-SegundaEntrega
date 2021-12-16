@@ -143,8 +143,6 @@ function View(){
 		$("#ano").val(piso.ano);
 		$("#estado").val(piso.estado);
 		$("#foto").val(piso.foto);
-		//$("#iduser").focus(); // Ponemos el foco en el campo Nombre.
-		//window.location.href = "http://localhost:2000/gestioneitorCliv1_0/editarPiso.html";
 	}
 	this.getIdPiso = function(celda) {
 		// Accedemos a la fila que está por encima de esta celda
@@ -155,20 +153,6 @@ function View(){
 		var id_piso = parseInt(celda.closest('tr').find('td').get(2).innerHTML);
 		return id_piso;
 	}
-	/*this.filtraPrecioDescendente = function(lista){
-        lista.sort(function(p1, p2){
-            if(p1.precio > p2.precio){
-                return 1;
-            }
-            if(p1.precio < p2.precio){
-                return -1;
-            }
-            if(p1.precio == p2.precio){
-                return 0;
-            }
-        });
-        that.list(lista);
-    }*/
 	
 	
 	
@@ -224,7 +208,6 @@ function Controller(varmodel, varview) {
 				// método de 
 				// edición
 				// sino se invoca al método de alta.
-				//alert("depura");
 				piso = that.view.loadPisoFromForm();
 				if ($("#id").val() == "") {
 					that.model.add(piso);
@@ -262,42 +245,16 @@ function Controller(varmodel, varview) {
 				location.reload(true);
 				that.view.list(that.model.tbpisos);
 		});
-		/*$("#filtrarPrecio").bind("submit",
-				function(event){
-					//alert(document.getElementById("precioMin").value);
-					var precioMin = $("#precioMin").val();
-					var precioMax = $("#precioMax").val();
-					//alert(precioMin);
-					//document.getElementById('alert').innerHTML = 'The user input is: ' + precioMin;					
-					//alert("traza");
-					//console.log(precioMax);
-					//alert(precioMin + " " + precioMax);
-					//Parte de mostrar todos los pisos
-					that.view.filtraPorPrecio(that.model.tbPisos, precioMin, precioMax);
-					alert("alerta");
-					//alert("llamaste al filtro");
-					//that.view.list(that.model.tbPisos);
-		});*/
 		
 		$("#filtrarCiudad").on("keyup",
 				function(event){
-					//alert(document.getElementById("precioMin").value);
 					var ciudad = $("#ciudadFiltro").val();
-					//alert(precioMin);
-					//document.getElementById('alert').innerHTML = 'The user input is: ' + precioMin;					
-					//console.log(precioMax);
-					//alert(precioMin + " " + precioMax);
 					//Parte de mostrar todos los pisos
 					that.view.filtraPorCiudad(that.model.tbPisos, ciudad);
-					//alert(ciudad);
 					event.preventDefault();
-					//alert("alerta");
-					//alert("llamaste al filtro");
-					//that.view.list(that.model.tbPisos);
 		});
 		$("#btnLimpiar").click(
 				function(evento){
-					//that.view.list(that.model.tbPisos);
 					location.reload(true);
 
 		});
@@ -330,22 +287,13 @@ function Controller(varmodel, varview) {
 		$("#tbPiso tbody tr").mouseover(function(event){
 			var valueOfTd = $(this).find('td:last-child').text();
 	        var path =  valueOfTd.slice(1);
-	        //alert(path);
 	        var c = document.getElementById("myCanvas");
-	        
-	        //alert("canvas seleccionado");
-	        /*if(c == null){
-	        	alert("canvas  nulo");
-	        }
-	        alert("canvas no nulo");*/
 	        var ctx = c.getContext("2d");
 	        var img = new Image();
 	        img.src = path;
 	        ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, 300, 300);
-	        //console.log("dibujado");*/
 		});
 		$("#tbPiso").mouseout(function(){
-			//$("#tbPiso").css("background-color", "white");
 			var c = document.getElementById("myCanvas");
 	        var ctx = c.getContext("2d");
 	        ctx.clearRect(0,0,300,300);
@@ -358,18 +306,8 @@ function Controller(varmodel, varview) {
 						url: "http://localhost:8080/tew2-2022-205-211-Servicios/pisos.json",
 						dataType: "json",
 						success: function(pisos){
-							//console.log(pisos);
 							var tbPisos = localStorage.getItem("tbPiso");
-							//console.log("Depura1");
-							//console.log("Piso:"+pisos);
 							tbPisos = JSON.parse(tbPisos);
-							//console.log("depura2");
-							//console.log(tbPisos);
-							/*if(tbPisos == null){
-	                            alert("No deberías estar aquí.")
-								tbPisos = [];
-							}*/
-							//console.log(tbPisos);
 							for (var i in pisos){
 								var piso = JSON.stringify({
 	                                 id : pisos[i].ID,
@@ -381,7 +319,6 @@ function Controller(varmodel, varview) {
 	                                 estado : pisos[i].Estado,
 	                                 foto : pisos[i].Foto,
 	                             });
-								 //console.log("Piso: "+piso);
 								 if(that.model.find(pisos[i].ID)!=null){
 	                                 console.log("YA HAY UN PISO CON ESE ID");
 	                                 that.model.edit(piso);
@@ -390,7 +327,6 @@ function Controller(varmodel, varview) {
 	                                 that.model.add(piso);
 	                             }
 							}
-	                         //console.log(tbPisos);
 							that.view.list(that.model.tbPisos);
 					}});
 		});
