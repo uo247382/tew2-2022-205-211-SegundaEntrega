@@ -22,15 +22,8 @@ table.dataTable thead .sorting:after, table.dataTable thead .sorting:before,
 	bottom: .5em;
 }
 </style>
-
 <body>
 	<br>
-	<!-- Seccion para mostrar los pisos -->
-	<!-- <form id="filtrarCiudad">
-		Filtrar ciudad: <input type="text" id="ciudadFiltro" value="">
-	</form>
-			 --> 
-
 	<br>
 	<section> 
 		<article class="table-responsive">
@@ -38,9 +31,7 @@ table.dataTable thead .sorting:after, table.dataTable thead .sorting:before,
 				id=tbPiso></table>
 		</article>
 	</section>
-	<canvas id="myCanvas" width="300" height="300"
-		z></canvas>
-
+	<canvas id="myCanvas" width="300" height="300"></canvas>
 	<script>    
 		$(document).ready(function() {
 			$('#tbPiso').DataTable({
@@ -59,7 +50,6 @@ table.dataTable thead .sorting:after, table.dataTable thead .sorting:before,
 			});
 		});
 	</script>
-
 </body>
 </html>
 

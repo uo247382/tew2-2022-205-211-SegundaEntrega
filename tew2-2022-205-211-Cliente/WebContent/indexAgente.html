@@ -1,21 +1,10 @@
-
-<!-- 
-***************************************************
-Asignatura: Tecnologías Web
-Titulación: GIITIN
-Universidad de Oviedo
-***************************************************
--->
-
 <!DOCTYPE html>
 <html>
 <head>
 <title>Agencia de pisos</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-
 <script
 	src="jquery/Jquery-1.11.3.min.js"></script>
 <script
@@ -26,27 +15,15 @@ Universidad de Oviedo
 <script type="text/javascript" src="javascript/functions_login.js"></script>
 </head>
 <body style="background-color: #C1C8E4">
-
 	<div class="container">
-		<!-- 
-	***************************************************
-	* CABECERA DE LA PAGINA ***************************
-	***************************************************
-	-->
 		<div class="page-header">
-			<h1>Agencia de Pisos  </h1>
-			<!-- 
-		***************************************************
-		* MENU  DINAMICO **********************************
-		***************************************************
-		-->
+			<h1>Agencia de Pisos</h1>
 			<nav class="navbar navbar-default">
 				<div class="navbar-header">
 					<a class="navbar-brand" href="#">Gestioneitor</a>
 				</div>
 				<div>
 					<ul class="nav navbar-nav">
-						
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">Agentes<span
 								class="caret"></span></a>
@@ -55,57 +32,32 @@ Universidad de Oviedo
 								<li><a href="crudPiso.html" target="formulario">Alta de Pisos</a></li>
 								<li><a href="editarPiso.html" target="formulario">Editar Piso</a></li>
 								<li><a href="reiniciaBBDD.html" target="formulario">Reiniciar BD</a></li>
-							</ul></li>
-										
+							</ul></li>			
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						
 						<li><a target="formulario" id="logout"><span
 								class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 					</ul>
 				</div>
 			</nav>
-
 		</div>
-
-
 		<div class="row">
-
-			<!-- 
-	***************************************************
-	* SECCION PRINCIPAL DE FORMULARIOS EXTERNOS********
-	***************************************************
-	-->
-	
 			<div class="col-md-9">
 				<object name="formulario" type="text/html" data="#login.html" width="100%"
 					height="425px"></object>
 			</div>
-
-
-			<!-- 
-	***************************************************
-	* ELEMENTO LATERAL INFORMATIVO ********************
-	***************************************************
-	-->
 			<div class="col-md-3 bg-info">
 				<aside>
 					<header>
-						<h2>Proyecto Gestioneitor Cliente v1.0</h2>
+						<h2>Proyecto Gestioneitor</h2>
 					</header>
-					<p>Agencia de pisos para comprar y ver:
+					<p>Agencia de pisos:
 					<ol>
 						<li>Trabajo realizado por Dani y Fernando</li>
 					</ol>
 				</aside>
 			</div>
 		</div>
-
-		<!-- 
-	***************************************************
-	* ELEMENTO PIE DE NAVEGACION** ********************
-	***************************************************
-	-->
 		<div class="panel panel-default">
 			<div class="panel-footer">
 				<nav>
@@ -117,8 +69,5 @@ Universidad de Oviedo
 			</div>
 		</div>
 	</div>
-
-
-
 </body>
 </html>
