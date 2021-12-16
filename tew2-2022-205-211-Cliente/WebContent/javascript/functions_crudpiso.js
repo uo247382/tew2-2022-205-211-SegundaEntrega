@@ -355,7 +355,7 @@ function Controller(varmodel, varview) {
 					console.log("Dentro de importar pisos");
 					$.ajax({
 						type: "GET",
-						url: "http://localhost:8080/tew2-2022-205-211-Servidor/pisos.json",
+						url: "http://localhost:8080/tew2-2022-205-211-Servicios/pisos.json",
 						dataType: "json",
 						success: function(pisos){
 							//console.log(pisos);
